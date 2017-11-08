@@ -9,7 +9,7 @@ INSTALL_VVAAS = """
     virtualenv venv;
     source venv/bin/activate;
     pip install git+https://github.com/EricFalkenberg/VVaaS;
-    install_vvaas --help;
+    crontab - 30 1 * * * /home/pi/venv/bin/install_vvaas;
     """
 
 @click.command()
