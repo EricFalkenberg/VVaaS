@@ -6,10 +6,11 @@ INSTALL_VVAAS = """
     sudo apt-get install python-pip;
     sudo apt-get install git;
     sudo pip install virtualenv;
+    rm -r venv;
     virtualenv venv;
     source venv/bin/activate;
     pip install git+https://github.com/EricFalkenberg/VVaaS;
-    crontab - 30 1 * * * /home/pi/venv/bin/install_vvaas;
+    echo "30 1 * * * /home/pi/venv/bin/install_vvaas" | crontab -;
     """
 
 @click.command()
