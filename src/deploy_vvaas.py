@@ -3,10 +3,13 @@ import click
 import subprocess
 
 INSTALL_VVAAS = """
+    sudo apt-get install python-pip;
+    sudo apt-get install git;
     sudo pip install virtualenv;
+    virtualenv venv;
     source venv/bin/activate;
-    pip install git+https://github.com/EricFalkenberg/VVaaS.git#egg=VVaaS;
-    VVaaS --help;
+    pip install git+https://github.com/EricFalkenberg/VVaaS;
+    install_vvaas --help;
     """
 
 @click.command()
