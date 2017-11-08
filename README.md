@@ -2,12 +2,12 @@
 Vegan Volcanoes as a Service
 
 ### Installation
-This project is meant to be run on a Raspberry Pi host. As such, you'll need to download the tool suite for interacting with such hosts.
+This project is meant to be run on a Raspberry Pi host. As such, you'll need to download the tool suite for interacting with such hosts. You'll also want to install the tools contained in this repo.
 ```
 virtualenv venv
 source venv/bin/activate
-pip install -e git+https://github.com/EricFalkenberg/raspi_tools#egg=flash_sd
-pip install -e git+https://github.com/EricFalkenberg/raspi_tools#egg=discover_rpi
+pip install git+https://github.com/EricFalkenberg/raspi_tools
+pip install git+https://github.com/EricFalkenberg/VVaaS
 ```
 Flash your SD with `flash_sd`
 ```
@@ -31,4 +31,12 @@ Options:
 The subnet argument defaults to `192.168.0.0/24` so if yours is different you'll have to specify.
 
 ### Deployment
-TODO
+Find the IP of the host you want to install to and use it with `deploy_vvaas`.
+```
+Usage: deploy_vvaas [OPTIONS] IP
+
+  Deploy VVaaS to the specified Raspberry Pi host
+
+Options:
+  --help  Show this message and exit.
+```
