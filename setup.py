@@ -8,7 +8,9 @@ setup(name="deploy_vvaas",
     include_package_data=True,
     install_requires=[
         'click',
-        'networkx'
+        'networkx',
+        'twilio',
+        'configparser'
     ],
     entry_points = {
         'console_scripts' : [
@@ -23,7 +25,9 @@ setup(name="order_vv",
     include_package_data=True,
     install_requires=[
         'click',
-        'networkx'
+        'networkx',
+        'twilio',
+        'configparser'
     ],
     entry_points = {
         'console_scripts' : [
