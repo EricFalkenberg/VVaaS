@@ -11,7 +11,7 @@ pip install git+https://github.com/EricFalkenberg/VVaaS
 ```
 
 ### Deployment
-Find the IP of the host you want to install to and pass it to `deploy_vvaas`.
+Find the IP of the host you want to install to and pass it to `deploy_vvaas`. The `raspi_tools` suite has a binary for doing this automatically assuming a Raspberry Pi is connected to the network.
 ```
 Usage: deploy_vvaas [OPTIONS] IP
 
