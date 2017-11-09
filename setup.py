@@ -7,7 +7,8 @@ setup(name="deploy_vvaas",
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'click'
+        'click',
+        'networkx'
     ],
     entry_points = {
         'console_scripts' : [
@@ -16,16 +17,17 @@ setup(name="deploy_vvaas",
     }
 )  
 
-setup(name="install_vvaas",
+setup(name="order_vv",
     version="0.0.1",
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'click'
+        'click',
+        'networkx'
     ],
     entry_points = {
         'console_scripts' : [
-            'install_vvaas = src.install_vvaas:cli'
+            'order_vv = src.order_vv:cli'
         ]
     }
 )  

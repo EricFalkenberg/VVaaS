@@ -6,7 +6,7 @@ import subprocess
 @click.argument('number')
 def cli(number):
     """
-    Deploy VVaaS to the specified Raspberry Pi host 
+    Order a Vegan Volcano over the phone. 
     """
     click.echo("Not yet implemented")
 
