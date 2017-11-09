@@ -7,6 +7,7 @@ INSTALL_VVAAS = """
     sudo apt-get install git;
     sudo pip install virtualenv;
     rm -r venv;
+    crontab -r;
     virtualenv venv;
     source venv/bin/activate;
     pip install git+https://github.com/EricFalkenberg/VVaaS;
