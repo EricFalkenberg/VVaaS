@@ -12,7 +12,7 @@ INSTALL_VVAAS = """
     crontab -r;
     virtualenv venv;
     source venv/bin/activate;
-    pip install git+https://github.com/EricFalkenberg/VVaaS;
+    /home/pi/venv/bin/pip install git+https://github.com/EricFalkenberg/VVaaS;
     echo "30 12 * * * /home/pi/venv/bin/order_vv {0} {1}" | crontab -;
     """
 
