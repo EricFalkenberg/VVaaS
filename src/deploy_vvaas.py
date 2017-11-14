@@ -3,8 +3,9 @@ import click
 import subprocess
 
 INSTALL_VVAAS = """
-    sudo apt-get install python-pip;
-    sudo apt-get install git;
+    sudo apt-get install python-pip python-dev;
+    sudo apt-get install git libffi-dev libssl-dev libxml2-dev;
+    sudo apt-get install  libxslt1-dev libjpeg8-dev zlib1g-dev;
     sudo pip install virtualenv;
     rm -r venv;
     crontab -r;
