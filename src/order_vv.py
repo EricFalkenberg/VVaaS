@@ -13,20 +13,17 @@ def get_twilio_acct(fname):
 @click.command()
 @click.argument('from_number')
 @click.argument('to_number')
-def cli(from_number, to_number):
+@click.argument('twilio_cfg', type=click.Path(exists=True))
+def cli(from_number, to_number, twilio_cfg):
     """
     Order a Vegan Volcano over the phone. 
     """
-    sid, auth = get_twilio_acct('twilio.cfg')
+    sid, auth = get_twilio_acct(twilio_cfg)
     client = Client(sid, auth)
     call = client.api.account.calls.create(to="+1{0}".format(to_number),
                                            from_="+1{0}".format(from_number),
                                            url="https://handler.twilio.com/twiml/EHf4c9c85b46cfcc78964ccb63e640cb04")
     click.echo(call.sid)
-    time.sleep(40)
-    t = client.transcriptions.list()
-    for transcription in t:
-        click.echo(transcription.transcription_text)
 
 if __name__ == '__main__':
     cli()

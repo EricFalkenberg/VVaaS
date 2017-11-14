@@ -3,6 +3,7 @@ import click
 import subprocess
 import getpass
 import paramiko
+import os
 from scp import SCPClient
 
 DEPENDENCIES = [
@@ -12,6 +13,7 @@ DEPENDENCIES = [
     ]
 RPI_USERNAME = 'pi'
 DEFAULT_SSH_PORT = 22
+RPI_TWILIO_LOC = '/home/pi'
 APT_UPDATE  = 'sudo apt-get update --fix-missing'
 APT_INSTALL = 'sudo apt-get -y install {0}'.format(' '.join(DEPENDENCIES)) 
 VENV_INSTALL = 'sudo pip install virtualenv'
@@ -20,7 +22,7 @@ RM_OLD_CRON = 'crontab -r'
 CREATE_VENV = 'virtualenv venv'
 SRC_VENV = 'source venv/bin/activate'
 DEPLOY   = '/home/pi/venv/bin/pip install git+https://github.com/EricFalkenberg/VVaaS'
-SETUP_CRON = 'echo "30 12 * * * /home/pi/venv/bin/order_vv {0} {1}" | crontab -'
+SETUP_CRON = 'echo "30 12 * * * /home/pi/venv/bin/order_vv {0} {1} {2}" | crontab -'
 
 def create_ssh_client(server, port, user, password):
     client = paramiko.SSHClient()
@@ -39,7 +41,7 @@ def exec_remote(client, command):
 def scp_file(client, path):
     with SCPClient(client.get_transport()) as scp:
         click.echo('Sending {0} to remote host'.format(path))
-        scp.put(path, remote_path='/home/pi/')
+        scp.put(path, remote_path=RPI_TWILIO_LOC)
 
 @click.command()
 @click.argument('from_number')
@@ -50,6 +52,8 @@ def cli(from_number, to_number, twilio_cfg, ip):
     """
     Deploy VVaaS to the specified Raspberry Pi host 
     """
+    remote_cfg_location = "%s/%s" % (RPI_TWILIO_LOC, os.path.basename(twilio_cfg))
+    click.echo(remote_cfg_location)
     click.echo('Accessing Remote Host')
     pi_pass = getpass.getpass(prompt='Raspberry Pi Password: ', stream=None)
     client = create_ssh_client(ip, DEFAULT_SSH_PORT, RPI_USERNAME, pi_pass) 
@@ -61,7 +65,7 @@ def cli(from_number, to_number, twilio_cfg, ip):
     exec_remote(client, CREATE_VENV)
     exec_remote(client, SRC_VENV)
     exec_remote(client, DEPLOY)
-    exec_remote(client, SETUP_CRON)
+    exec_remote(client, SETUP_CRON.format(from_number, to_number, remote_cfg_location)) 
     scp_file(client, twilio_cfg) 
 
 if __name__ == '__main__':
