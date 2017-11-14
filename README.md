@@ -11,9 +11,17 @@ pip install git+https://github.com/EricFalkenberg/VVaaS
 ```
 
 ### Deployment
-Find the IP of the host you want to install to and pass it to `deploy_vvaas`. The `raspi_tools` suite has a binary for doing this automatically assuming a Raspberry Pi is connected to the network.
+Create a file of the following format called `twilio.cfg`.
 ```
-Usage: deploy_vvaas [OPTIONS] IP
+[account]
+sid: <twilio_sid_here>
+auth: <twilio_auth_id_here>
+```
+Fill in account information using your own Twilio account.
+
+Finally, use `deploy_vvaas` to deploy the project.
+```
+Usage: deploy_vvaas [OPTIONS] FROM_NUMBER TO_NUMBER TWILIO_CFG IP
 
   Deploy VVaaS to the specified Raspberry Pi host
 
@@ -21,5 +29,5 @@ Options:
   --help  Show this message and exit.
 ```
 ```
-deploy_vvaas <TWILIO_NUMBER> <TARGET_NUMBER> `sudo discover_rpi [SUBNET]`
+deploy_vvaas <TWILIO_NUMBER> <TARGET_NUMBER> <TWILIO_CFG_PATH> `sudo discover_rpi [SUBNET]`
 ```
