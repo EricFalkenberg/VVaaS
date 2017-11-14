@@ -9,7 +9,9 @@ setup(name="vvaas",
     install_requires=[
         'click',
         'twilio',
-        'configparser'
+        'configparser',
+        'paramiko',
+        'scp'
     ],
     entry_points = {
         'console_scripts' : [
