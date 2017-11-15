@@ -3,7 +3,7 @@ As society moves further toward a mobile-first, cloud-focused environment, it ju
 
 Face it: this is America. We like to level the playing field for the under-dog and allow the American dream to come true. VVaaS&trade; allows for the “democratization of vegan volcanoes” in almost every possible way. For as society that moves fast and likes to keep its options open for the next big thing, VVaaS&trade; is the perfect solution.
 
-Call the Rainforest Cafe every day using bleeding edge Cron-Technology&trade;&reg;&copy;.
+Call the Rainforest Cafe every day using bleeding edge Cron-Technology&trade;&reg;&copy; and order five (5) vegan volcanoes.
 
 ### Installation
 This project is meant to be run on a Raspberry Pi so you'll need to install the tool suite for interacting with such hosts. You'll also want to install the tools contained in this repo.
