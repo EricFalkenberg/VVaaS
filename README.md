@@ -13,6 +13,7 @@ source venv/bin/activate
 pip install git+https://github.com/EricFalkenberg/raspi_tools
 pip install git+https://github.com/EricFalkenberg/VVaaS
 ```
+[More information about the raspi_tools suite can be found here.](https://github.com/EricFalkenberg/raspi_tools/blob/master/README.md)
 
 ### Deployment
 Create a file of the following format called `twilio.cfg`.
