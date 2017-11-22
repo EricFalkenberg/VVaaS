@@ -1,4 +1,4 @@
-# Vegan Volcano as a Service (VVaaS)
+# Vegan Volcano as a Service (VVaaS&trade;)
 As society moves further toward a mobile-first, cloud-focused environment, it just makes sense for vegans to follow suit, keeping everything on the cloud where it is accessible and up-to-date 24/7.
 
 Face it: this is America. We like to level the playing field for the under-dog and allow the American dream to come true. VVaaS&trade; allows for the “democratization of vegan volcanoes” in almost every possible way. For as a society that moves fast and likes to keep its options open for the next big thing, VVaaS&trade; is the perfect solution.
